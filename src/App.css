@@ -33,3 +33,10 @@
   font-weight: bold;
   background-color: lightgrey;
 }
+.pagination{
+  list-style: none;
+}
+.pagination li{
+  display: inline-block;
+  margin:5px 10px;
+}
