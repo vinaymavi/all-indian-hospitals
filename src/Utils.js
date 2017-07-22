@@ -9,7 +9,7 @@ export const ReformatData = (json)=> {
     /*TODO need to reduce complexity*/
     json.records.forEach((record, index)=> {
         /*TODO hack because of bad data*/
-        if(index<4){
+        if(index<10){
             state.rows[index] = [];
             state.header.forEach((colValue)=> {
                 state.rows[index].push(record[colValue]);
@@ -17,6 +17,6 @@ export const ReformatData = (json)=> {
         }
     });
     state.total = json.total;
-    state.pageLen = 4;
+    state.pageLen = 10;
     return state;
 };

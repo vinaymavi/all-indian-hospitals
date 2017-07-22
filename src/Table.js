@@ -15,7 +15,7 @@ class Table extends Component {
                 ["Col1", "Col2", "Col3", "Col4", "Col5"],
                 ["Col1", "Col2", "Col3", "Col4", "Col5"]],
             "total": 100,
-            "pagelen": 4,
+            "pagelen": 10,
             "currentPage": 0
         }
     }
