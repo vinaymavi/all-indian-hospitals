@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-
+import {LoadData} from "./HttpService"
+import {ReformatData} from "./Utils"
 class Table extends Component {
     constructor() {
         super();
@@ -40,5 +41,16 @@ class Table extends Component {
             </table>
         )
     }
+
+    componentDidMount = ()=>{
+        LoadData().then(resp=>{
+            return resp.json();
+        }).then(json=>{
+             let state  = ReformatData(json);
+             console.log(state);
+             this.setState(state);
+             this.render();
+        });
+    };
 }
 export default Table

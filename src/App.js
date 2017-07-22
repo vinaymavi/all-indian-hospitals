@@ -8,7 +8,7 @@ class App extends Component {
             <div className="App">
                 <Header/>
                 <Table/>
-                <Pagination total="100" pagelen="10"/>
+                <Pagination total={100} pagelen={10}/>
             </div>
         )
     }
