@@ -16,6 +16,7 @@ export const ReformatData = (json)=> {
             });
         }
     });
-
+    state.total = json.total;
+    state.pageLen = 4;
     return state;
 };
