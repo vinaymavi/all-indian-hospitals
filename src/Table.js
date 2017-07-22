@@ -15,7 +15,8 @@ class Table extends Component {
                 ["Col1", "Col2", "Col3", "Col4", "Col5"],
                 ["Col1", "Col2", "Col3", "Col4", "Col5"]],
             "total": 100,
-            "pagelen": 4
+            "pagelen": 4,
+            "currentPage": 0
         }
     }
 
@@ -45,7 +46,8 @@ class Table extends Component {
                     })}
                     </tbody>
                 </table>
-                <Pagination loadPageData={this.page} total={this.state.total} pagelen={this.state.pagelen}/>
+                <Pagination currentPage={this.state.currentPage} loadPageData={this.page} total={this.state.total}
+                            pagelen={this.state.pagelen}/>
             </div>
         )
     }
@@ -56,8 +58,22 @@ class Table extends Component {
     };
 
     page(offset) {
-        console.log("Page Load calling.");
-        this.fetchResultAndRender(offset * this.state.pagelen);
+        switch (offset) {
+            case "next":
+                if (this.state.currentPage < this.state.total) {
+                    this.state.currentPage++;
+                }
+                break;
+            case "prev":
+                if (this.state.currentPage > 0) {
+                    this.state.currentPage--;
+                }
+                break;
+            default:
+                this.state.currentPage = offset;
+        }
+        this.fetchResultAndRender(this.state.currentPage * this.state.pagelen);
+
     }
 
     fetchResultAndRender(offset) {
